@@ -31,7 +31,7 @@ class HelloWorld {
 	  //println("-------------- Hots2:   " + Hot.getHots2(0))
 	  
 	  // use this code: DB.use(bootstrap.liftweb.TwoDB) 
-	  //println("-------------- Hots3:   " + Hot.getHots3(0))
+	  println("-------------- Hots3:   " + Hot.getHots3(0))
 	  /** ################## End of ... Doesn't Work ##################*/
   
    /****************   This code will be executed 2 times when refresh the browser ??? ****************/

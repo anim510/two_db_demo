@@ -34,13 +34,17 @@ class Hot extends LongKeyedMapper[Hot] with IdPK {
   }
   
   def getHots3(id : Long) = {
-    DB.use(bootstrap.liftweb.TwoDB) {
-      conn => 
-				DB.prepareStatement("SELECT * FROM hots WHERE id>?", conn) {
-					stmt =>
-						stmt.setLong(1, id)
-						stmt.executeUpdate()
-				}
+    DB.use(bootstrap.liftweb.OneDB) {
+      firstConn =>
+		    DB.use(bootstrap.liftweb.TwoDB) {
+          conn =>
+						DB.prepareStatement("SELECT * FROM hots WHERE id>?", conn) {
+							stmt =>
+								stmt.setLong(1, id)
+								//stmt.executeUpdate()
+								stmt.executeQuery()
+						}
+		    }
     }
   }
 
